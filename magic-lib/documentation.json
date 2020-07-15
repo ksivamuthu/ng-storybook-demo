@@ -1,0 +1,221 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [
+        {
+            "name": "MagicLibService",
+            "id": "injectable-MagicLibService-756829ac44cfa70d56e404fb69de10cb",
+            "file": "projects/magic-lib/src/lib/magic-lib.service.ts",
+            "properties": [],
+            "methods": [],
+            "description": "",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class MagicLibService {\n\n  constructor() { }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 6
+            },
+            "type": "injectable"
+        }
+    ],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-07836d6cad6e689bb2d94c377a89e776",
+            "file": "projects/magic-lib/src/lib/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "magic-button",
+            "styleUrls": [
+                "./button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "text",
+                    "line": 10,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "click",
+                    "defaultValue": "new EventEmitter()",
+                    "line": 12,
+                    "type": "EventEmitter<void>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14
+                },
+                {
+                    "name": "onclick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'magic-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent implements OnInit {\n\n  @Input() text: string;\n\n  @Output() click: EventEmitter<void> = new EventEmitter();\n\n  ngOnInit() {\n  }\n\n  onclick() {\n    this.click.emit();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".btn-shine {\n  position: relative;\n  margin: 0;\n  padding: 5px 12px;\n  height: 60px;\n  outline: none;\n  text-decoration: none;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n  background-color: #ffffff;\n  border: 1px solid rgba(22, 76, 167, 0.6);\n  border-radius: 10px;\n  color: #1d89ff;\n  font-weight: 400;\n  font-size: 20px;\n  font-family: inherit;\n  z-index: 0;\n  overflow: hidden;\n  transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);\n  span {\n    color: #164ca7;\n    font-size: 12px;\n    font-weight: 500;\n    letter-spacing: 0.7px;\n  }\n  &:hover {\n    animation: rotate 0.7s ease-in-out both;\n    span {\n      animation: storm 0.7s ease-in-out both;\n      animation-delay: 0.06s;\n    }\n  }\n}\n\n@keyframes rotate {\n  0% {\n    transform: rotate(0deg) translate3d(0, 0, 0);\n  }\n  25% {\n    transform: rotate(3deg) translate3d(0, 0, 0);\n  }\n  50% {\n    transform: rotate(-3deg) translate3d(0, 0, 0);\n  }\n  75% {\n    transform: rotate(1deg) translate3d(0, 0, 0);\n  }\n  100% {\n    transform: rotate(0deg) translate3d(0, 0, 0);\n  }\n}\n@keyframes storm {\n  0% {\n    transform: translate3d(0, 0, 0) translateZ(0);\n  }\n  25% {\n    transform: translate3d(4px, 0, 0) translateZ(0);\n  }\n  50% {\n    transform: translate3d(-3px, 0, 0) translateZ(0);\n  }\n  75% {\n    transform: translate3d(2px, 0, 0) translateZ(0);\n  }\n  100% {\n    transform: translate3d(0, 0, 0) translateZ(0);\n  }\n}\n\n.btn-shine {\n  border: 1px solid;\n  overflow: hidden;\n  position: relative;\n  span {\n    z-index: 20;\n  }\n  &:after {\n    background: #38ef7d;\n    content: \"\";\n    height: 155px;\n    left: -75px;\n    opacity: .4;\n    position: absolute;\n    top: -50px;\n    transform: rotate(35deg);\n    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);\n    width: 50px;\n    z-index: -10;\n  }\n  &:hover {\n    &:after {\n      left: 120%;\n      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);\n    }\n  }\n}\n",
+                    "styleUrl": "./button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<button class='btn-shine' (click)=\"onclick()\">\n  {{text}}\n</button>\n"
+        },
+        {
+            "name": "MagicLibComponent",
+            "id": "component-MagicLibComponent-8d583791f7e4dc972d6fc21cf8a60d11",
+            "file": "projects/magic-lib/src/lib/magic-lib.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "magic-magic-lib",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<p>\n  magic-lib works!\n</p>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'magic-magic-lib',\n  template: `\n    <p>\n      magic-lib works!\n    </p>\n  `,\n  styles: [\n  ]\n})\nexport class MagicLibComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 13
+            },
+            "implements": [
+                "OnInit"
+            ]
+        }
+    ],
+    "modules": [
+        {
+            "name": "MagicLibModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "MagicLibComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MagicLibComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": [],
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/magic-lib/src/lib/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/magic-lib/src/lib/magic-lib.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MagicLibComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/magic-lib/src/lib/magic-lib.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MagicLibService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            }
+        ]
+    }
+}
