@@ -1,4 +1,4 @@
-# MagicLib
+# Magic Library Components
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
 
