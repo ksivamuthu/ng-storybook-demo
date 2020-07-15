@@ -11,7 +11,7 @@ on:
       - master
     paths:
       - 'magic-lib/**'
-      - '.github/**'
+      - '.github/**/*.yml'
 
 defaults:
   run:
