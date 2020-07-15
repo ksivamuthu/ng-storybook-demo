@@ -33,7 +33,11 @@ jobs:
       - name: Test
         run: npm run test-ci
       - name: Build Storybook
-        run: npm run build-storybook       
+        run: npm run build-storybook          
+      - name: Chromatic Push
+        run: npm run chromatic  
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}  
       - uses: amondnet/vercel-action@v19
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
