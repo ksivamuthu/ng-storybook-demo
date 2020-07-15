@@ -5,11 +5,10 @@ on:
     branches:
       - master
   pull_request:
-    types: [opened, synchronize, reopened, closed]
     branches:
       - master
   paths:
-  - 'magic-lib/**'
+    - 'magic-lib/**'
 
 defaults:
   run:
