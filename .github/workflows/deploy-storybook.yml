@@ -21,11 +21,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          submodules: true
-      - uses: chromaui/action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}           
+          submodules: true   
       - name: Install dependencies
         run: npm install
       - name: Build
@@ -34,14 +30,20 @@ jobs:
         run: npm run test-ci
       - name: Build Storybook
         run: npm run build-storybook          
-      - name: Chromatic Push
-        run: npm run chromatic  
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}           
-      - uses: amondnet/vercel-action@v19
+      - uses: chromaui/action@v1
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  #Required
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required 
-          working-directory: ./magic-lib/storybook-static
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}        
+          storybookBuildDir: './magic-lib/storybook-static'   
+          exitZeroOnChanges: true     
+      # - name: Chromatic Push
+      #   run: npm run chromatic  
+      #   env:
+      #     CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}           
+      # - uses: amondnet/vercel-action@v19
+      #   with:
+      #     vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+      #     github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
+      #     vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  #Required
+      #     vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required 
+      #     working-directory: ./magic-lib/storybook-static
