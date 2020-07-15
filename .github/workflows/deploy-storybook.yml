@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'magic-lib/**'
   pull_request:
     branches:
       - master
-  paths:
-    - 'magic-lib/**'
+    paths:
+      - 'magic-lib/**'
 
 defaults:
   run:
