@@ -34,16 +34,10 @@ jobs:
         run: npm run test-ci
       - name: Build Storybook
         run: npm run build-storybook       
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.1
+      - uses: actions/vercel-deployment@0.5.1
         with:
-          publish-dir: './magic-lib/storybook-static'
-          production-branch: master
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
-          enable-pull-request-comment: false
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}        
+          vercelToken: ${{ secrets.VERCEL_TOKEN }}
+          vercelOrgId: ${{ secrets.VERCEL_ORG_ID }}
+          vercelProjectId: ${{ secrets.VERCEL_PROJECT_ID }}
+          githubToken: ${{ secrets.PAT }}
+          deploySource: "./magic-lib/storybook-static"
