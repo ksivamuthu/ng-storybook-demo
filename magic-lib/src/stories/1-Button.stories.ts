@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import { ButtonComponent } from '../../projects/magic-lib/src/lib/button/button.component';
+import { boolean, number, text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Button',
@@ -10,14 +11,14 @@ export default {
 export const Text = () => ({
   component: ButtonComponent,
   props: {
-    text: 'Hello Button',
+    text: text('text', 'Hello Button'),
   },
 });
 
 export const Emoji = () => ({
   component: ButtonComponent,
   props: {
-    text: '😀 😎 👍 💯',
+    text: text('text', '😀 😎 👍 💯'),
   },
 });
 
@@ -28,7 +29,7 @@ Emoji.story = {
 export const WithSomeEmojiAndAction = () => ({
   component: ButtonComponent,
   props: {
-    text: '😀 😎 👍 💯',
+    text: text('text', '😀 😎 👍 💯'),
     click: action('This was clicked OMG'),
   },
 });
@@ -41,8 +42,8 @@ WithSomeEmojiAndAction.story = {
 export const ButtonWithLinkToAnotherStory = () => ({
   component: ButtonComponent,
   props: {
-    text: 'Go to Welcome Story',
-    onClick: linkTo('Welcome'),
+    text: text('text', 'Go to Welcome Story'),
+    click: linkTo('Welcome'),
   },
 });
 
