@@ -32,8 +32,19 @@ jobs:
         run: npm run build -- --prod
       - name: Test
         run: npm run test-ci
-      - uses: jsmrcaga/action-netlify-deploy@master
+      - name: Build Storybook
+        run: npm run build-storybook       
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
         with:
-          build_directory: storybook-static
+          publish-dir: './storybook-static'
+          production-branch: master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
