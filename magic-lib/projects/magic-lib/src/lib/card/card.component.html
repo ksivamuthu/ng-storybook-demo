@@ -1,0 +1,13 @@
+<div class="my-card">
+  <div class="body">
+    <h2 class="title">{{ title }}</h2>
+    <div class="content">
+      {{ message }}
+    </div>
+    <div class="button-container">
+      <div>
+        <button *ngIf="buttonText" class="button" (click)="onclick()">{{buttonText}}</button>
+      </div>
+    </div>
+  </div>
+</div>
